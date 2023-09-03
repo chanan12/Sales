@@ -1,13 +1,12 @@
 import pandas as pd
 import xgboost as xgb
-import joblib
 import plotly.express as px
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression  #
+from sklearn.linear_model import LogisticRegression
 
 # Load dataset
 df = pd.read_csv('customer_shopping_data.csv')
@@ -25,9 +24,6 @@ y = df['quantity']
 # Create and train the XGBoost model
 model = xgb.XGBRegressor(n_estimators=100, max_depth=10, min_child_weight=1, random_state=42)
 model.fit(X, y)
-
-# Save the trained model
-joblib.dump(model, 'quantity_prediction_model.pkl')
 
 # Calculate predicted quantities
 predicted_quantities = model.predict(X)
@@ -57,8 +53,7 @@ app.layout = html.Div([
                                 title='Scatter Plot')),
     dcc.Markdown('''
         **Additional Information**
-
-        This dashboard uses Machine Learning to predict sales quantities     ''')
+        This dashboard uses Machine Learning to predict sales quantities''')
 ])
 
 
