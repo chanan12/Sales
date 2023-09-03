@@ -5,4 +5,4 @@ plotly~=5.6.0
 dash~=2.13.0
 scikit-learn>=0.24
 pandas~=1.4.0
-python==3.9git add .
+python==3.9
