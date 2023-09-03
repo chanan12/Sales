@@ -1,1 +1,1 @@
-web: python predict.py
+web: python predict3.py
