@@ -1,1 +1,1 @@
-web: gunicorn predict3:app
+web: gunicorn app:server

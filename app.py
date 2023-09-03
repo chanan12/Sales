@@ -4,9 +4,7 @@ import plotly.express as px
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
+import flask
 
 # Load dataset
 df = pd.read_csv('customer_shopping_data.csv')
@@ -29,7 +27,9 @@ model.fit(X, y)
 predicted_quantities = model.predict(X)
 
 # Create a dashboard to showcase the sales prediction
-app = dash.Dash(__name__)
+
+server = flask.Flask(__name__)
+app = dash.Dash(__name__, server=server)
 
 app.layout = html.Div([
     html.H1('Sales Prediction Dashboard'),

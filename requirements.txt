@@ -1,6 +1,6 @@
-xgboost~=1.7.6
-plotly~=5.6.0
-dash~=2.13.0
-scikit-learn>=0.24
+xgboost
+plotly
+dash
+scikit-learn
 pandas
 gunicorn
