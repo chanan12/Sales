@@ -30,7 +30,7 @@ predicted_quantities = model.predict(X)
 
 # Create a dashboard to showcase the sales prediction
 app = dash.Dash(__name__)
-print(app)
+
 app.layout = html.Div([
     html.H1('Sales Prediction Dashboard'),
     html.P("This dashboard demonstrates the power of Machine Learning to predict sales quantities."),
