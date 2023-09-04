@@ -6,7 +6,7 @@ import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
-
+import flask
 # Load CSV
 data = pd.read_csv('data.csv')
 
@@ -31,7 +31,10 @@ reg.fit(X_scaled, y)
 dropdown_options = [{'label': feature, 'value': feature} for feature in features] + [{'label': 'All Features', 'value': 'All'}]
 
 # Initialize the Dash app
-app = dash.Dash(__name__)
+
+
+server = flask.Flask(__name__)
+app = dash.Dash(__name__, server=server)
 
 app.layout = html.Div([
     dcc.Dropdown(
